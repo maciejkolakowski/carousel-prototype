@@ -1,0 +1,106 @@
+body.no-csstransitions {
+	.nav-container {
+		.arrow {
+			span {
+				display: none;
+				visibility: hidden;
+			}
+		}
+	}
+}
+
+html, body, .slides-wrapper {
+	height: 100%;
+}
+.slides-wrapper {
+    width: 100%;
+    display: block;
+    position: relative;
+    min-height: 100%;
+    overflow: hidden;
+	.slide {
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: auto;
+		transition: 0.3s all ease-in-out;
+		opacity: 0;
+		&.active {
+			opacity: 1;
+		}
+		img {
+			max-width: 100%;
+		}
+	}
+}
+.nav-container {
+	position: absolute;
+	width: 100%;	
+	left: 0;
+	top: 50%;
+	margin-top: -30px;
+	.arrow {
+		position: absolute;
+		transition: 0.3s all ease-in-out;
+		opacity: 0.5;
+		span.anchor-text {
+			font-family: sans-serif;
+			line-height: 1;
+			position: absolute;
+			width: 45px;
+			padding: 5px 10px;
+			color: white;
+			opacity: 0;
+			top: 50%;
+			margin-top: -13px;
+			z-index: 9;
+			transition: 0.3s all ease-in-out;
+		}
+		span.anchor-background {
+			position: absolute;
+			width: 0;
+			height: 24px;
+			transition: 0.15s all ease-in-out;
+			top: 50%;
+			margin-top: -13px;
+			background: black;
+			z-index: 1;
+			transition-delay: 0.15s;
+		}
+		&.arrow-left {
+			left: 30px;
+			span.anchor-text {
+				transform: translateX(-10px);
+				left: 40px;
+			}
+			span.anchor-background {
+				left: 40px;
+			}
+		}
+		&.arrow-right {
+			right: 30px;
+			span.anchor-text {
+				transform: translateX(10px);
+				right: 40px;
+			}
+			span.anchor-background {
+				right: 40px;
+				transform-origin: right center;
+			}
+		}
+		&:hover {
+			opacity: 1;
+			span.anchor-text {
+				transition-delay: 0.05s;
+				opacity: 1;
+				transform: translateX(0);
+			}
+			span.anchor-background {
+				width: 155px;
+				transition-delay: 0s;
+			}
+		}
+	}
+}
