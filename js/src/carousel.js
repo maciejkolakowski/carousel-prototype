@@ -4,8 +4,8 @@ function carousel(selector, options) {
     var options = options;
     if (options === undefined) {
         options = {
-            slideDuration: 5000,
-            speed: 700
+            slideDuration: 2000,
+            speed: 400
         }
     }
 
@@ -29,10 +29,8 @@ carousel.prototype.changeSlide = function(changeType) {
     this.animated = true;
     this.clearTimer();
 
-    var activeSlide;
+    var activeSlide = this.slidesWrapper.querySelector('.' + this.activeClassName);
     var transformedSpeed = this.defaults.speed / 1000;
-
-    activeSlide = this.slidesWrapper.querySelector('.' + this.activeClassName);
 
     if (!this.cssTransitions) {
         TweenLite.to(activeSlide, transformedSpeed, {
